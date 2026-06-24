@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resume Parser</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Automated Resume Parser</h1>
+
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="resume" required>
+        <button type="submit">Upload Resume</button>
+    </form>
+
+    {% if data %}
+    <div class="result">
+        <h2>Extracted Details</h2>
+
+        <p><strong>Name:</strong> {{ data.name }}</p>
+        <p><strong>Email:</strong> {{ data.email }}</p>
+        <p><strong>Phone:</strong> {{ data.phone }}</p>
+        <p><strong>Skills:</strong> {{ data.skills }}</p>
+        <p><strong>Education:</strong> {{ data.education }}</p>
+</div>
+    {% endif %}
+
+</div>
+
+</body>
+</html>
